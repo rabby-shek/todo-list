@@ -1,24 +1,20 @@
-import React from 'react';
-
-const Navbar = () => {
+import React from "react";
+import Logo from "../../assets/images/logo.png";
+import { CiMenuFries } from "react-icons/ci";
+import Day from "./Day";
+const Navbar = ({ toggleSidebar }) => {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <a className="navbar-brand" href="#home">MyApp</a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="#home">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#link">Link</a>
-          </li>
-        </ul>
+    <nav className="navbar-container between">
+      <div className="nav-logo center col-gap-1">
+        <img src={Logo} alt="logo" />
+        <Day />
+      </div>
+
+      <div className="nav-toggle" onClick={toggleSidebar}>
+        <CiMenuFries className="menu-icon" />
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

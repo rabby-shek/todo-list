@@ -2,9 +2,9 @@ import React from 'react';
 
 const Main = () => {
   return (
-    <div className="container mt-3">
+    <div className="main-container">
       <h1>Main Content</h1>
-      <p>This is the main content area.</p>
+      <p>lorem1000</p>
     </div>
   );
 }
