@@ -10,7 +10,7 @@
   --ongoing-task-bg-color: #ffa500;
   --done-task-bg-color: #74dc2e;
   --font-color-primary: #3d3b40;
-  --app-bg-color: #f8edff;
+  --app-bg-color: #E5E1DA;
 }
 /* ========== REUSEABLE CSS STYLES ========== */
 
@@ -44,3 +44,4 @@
 .flex-direction-col {
   flex-direction: column;
 }
+
