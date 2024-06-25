@@ -1,10 +1,10 @@
 import React from 'react';
+import Add from '../task/Task';
 
 const Main = () => {
   return (
     <div className="main-container">
-      <h1>Main Content</h1>
-      <p>lorem1000</p>
+      <Add />
     </div>
   );
 }

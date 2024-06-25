@@ -35,16 +35,34 @@ body {
 
 /* MAIN CONTAINER STYLES */
 .main-container {
-  padding-top: 5rem;
+  padding-top: 6rem;
   margin: 10px;
+  width: 100%;
 }
+/* TASK STYLES */
+.task-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%; /* Ensure container takes full width of parent */
+}
+
+
+.task-item {
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 100%; 
+  border-radius: 10px;
+}
+
+
 @media (max-width: 991.98px) {
   .menu-icon {
     display: block;
   }
 
   .main-container {
-    padding-top: 5rem;
+    padding-top: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
     margin: 10px;
