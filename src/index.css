@@ -4,7 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+/* CSS VARIABLES */
+:root{
+  --new-task-bg-color: #3da5ff;
+  --ongoing-task-bg-color: #ffa500;
+  --done-task-bg-color: #74dc2e;
+}
 /* REUSEABLE CSS STYLES */
 
 .center {
