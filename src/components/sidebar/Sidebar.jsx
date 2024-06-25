@@ -7,12 +7,12 @@ const Sidebar = ({ isOpen }) => {
         <ul className="nav flex-column">
           <li className="nav-item">
             <a className="nav-link " href="#home">
-              Home
+              Add New Task
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link " href="#features">
-              Features
+              Task List
             </a>
           </li>
           <li className="nav-item">

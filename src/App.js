@@ -13,7 +13,7 @@ const App = () => {
     <div>
       <Navbar toggleSidebar={toggleSidebar} />
       <div className="d-flex">
-        <Sidebar isOpen={isOpen} />
+        {/* <Sidebar isOpen={isOpen} /> */}
         <Main />
       </div>
     </div>

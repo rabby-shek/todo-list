@@ -36,7 +36,6 @@ body {
 /* MAIN CONTAINER STYLES */
 .main-container {
   padding-top: 5rem;
-  padding-left: 250px;
   margin: 10px;
 }
 @media (max-width: 991.98px) {
