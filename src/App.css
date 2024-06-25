@@ -54,6 +54,38 @@ body {
   width: 100%; 
   border-radius: 10px;
 }
+.task{
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+.add-icon{
+  font-size: 25px;
+  cursor: pointer;
+}
+.task-header{
+  margin-bottom: 10px;
+}
+.task-title{
+  font-weight: bold;
+  font-size: 18px;
+}
+.task-status-new{
+  background-color: var(--new-task-bg-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.task-status-ongoing{
+  background-color: var(--ongoing-task-bg-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.task-body{
+  margin-bottom: 10px;
+}
 
 
 @media (max-width: 991.98px) {
