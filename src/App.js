@@ -1,11 +1,17 @@
 import React from 'react'
-import './App.css';
+import Navbar from './components/navbar/Navbar';
+import Sidebar from './components/sidebar/Sidebar';
+import Main from './components/main/Main';
 const App = () => {
   return (
     <div>
-      app
+      <Navbar />
+      <div className="d-flex">
+        <Sidebar />
+        <Main />
+      </div>
     </div>
   )
 }
 
-export default App
+export default App;

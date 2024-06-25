@@ -1,16 +1,18 @@
-/* RESET CSS STYLES */
+/* ========== RESET CSS STYLES ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* CSS VARIABLES */
-:root{
+/* ========== CSS VARIABLES ========== */
+:root {
   --new-task-bg-color: #3da5ff;
   --ongoing-task-bg-color: #ffa500;
   --done-task-bg-color: #74dc2e;
+  --font-color-primary: #3d3b40;
+  --app-bg-color: #f8edff;
 }
-/* REUSEABLE CSS STYLES */
+/* ========== REUSEABLE CSS STYLES ========== */
 
 .center {
   display: flex;

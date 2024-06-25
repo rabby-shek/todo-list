@@ -1,0 +1,7 @@
+body{
+  background-color: var(--app-bg-color);
+}
+
+.nav-link {
+  padding: 1rem;
+}
