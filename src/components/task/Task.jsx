@@ -9,6 +9,7 @@ const Add = () => {
   const [taskForm, setTaskForm] = useState(false);
   const [newTasks, setNewTasks] = useState([]);
   const [taskTransferId, setTaskTransferId] = useState(null);
+  const [transferToNew, setTransferToNew] = useState(false);
   const [transferToOngoing, setTransferToOngoing] = useState(false);
   const [transferToDone, setTransferToDone] = useState(false);
 
@@ -19,11 +20,21 @@ const Add = () => {
   const handleTransferShow = (id) => {
     setTaskTransferId(id === taskTransferId ? null : id);
     // Reset transfer checkboxes
+    setTransferToNew(false);
     setTransferToOngoing(false);
     setTransferToDone(false);
   };
 
+  const handleTransferToNew = () => {
+    setTransferToNew(true);
+    setTransferToOngoing(false);
+    setTransferToDone(false);
+    // Update task status to "New"
+    updateTaskStatus("new");
+  };
+
   const handleTransferToOngoing = () => {
+    setTransferToNew(false);
     setTransferToOngoing(true);
     setTransferToDone(false);
     // Update task status to "Ongoing"
@@ -31,6 +42,7 @@ const Add = () => {
   };
 
   const handleTransferToDone = () => {
+    setTransferToNew(false);
     setTransferToOngoing(false);
     setTransferToDone(true);
     // Update task status to "Done"
@@ -160,13 +172,13 @@ const Add = () => {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      id={`transferToOngoing_${item.id}`}
-                      checked={transferToOngoing}
-                      onChange={handleTransferToOngoing}
+                      id={`transferToNew_${item.id}`}
+                      checked={transferToNew}
+                      onChange={handleTransferToNew}
                     />
                     <label
                       className="form-check-label"
-                      htmlFor={`transferToOngoing_${item.id}`}
+                      htmlFor={`transferToNew_${item.id}`}
                     >
                       New
                     </label>
@@ -224,6 +236,41 @@ const Add = () => {
                 <div className="task-status-done">Done</div>
               </div>
               <div className="task-body">{item.description}</div>
+              {taskTransferId === item.id && (
+                <div>
+                  <div>Transfer to:</div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id={`transferToNew_${item.id}`}
+                      checked={transferToNew}
+                      onChange={handleTransferToNew}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor={`transferToNew_${item.id}`}
+                    >
+                      New
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      id={`transferToOngoing_${item.id}`}
+                      checked={transferToOngoing}
+                      onChange={handleTransferToOngoing}
+                    />
+                    <label
+                      className="form-check-label"
+                      htmlFor={`transferToOngoing_${item.id}`}
+                    >
+                      Ongoing
+                    </label>
+                  </div>
+                </div>
+              )}
               <div className="task-footer between">
                 <div className="task-btn-grp between col-gap-1">
                   <button className="btn btn-sm btn-warning">
@@ -232,7 +279,10 @@ const Add = () => {
                   <button className="btn btn-sm btn-danger">
                     <MdDelete />
                   </button>
-                  <button className="btn btn-sm btn-primary">
+                  <button
+                    className="btn btn-sm btn-primary"
+                    onClick={() => handleTransferShow(item.id)}
+                  >
                     <BiTransfer />
                   </button>
                 </div>
