@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const TaskForm = ({ tasks, setTasks }) => {
+const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  useEffect(() => {
+    if (editingTask) {
+      setTitle(editingTask.title || "");
+      setDescription(editingTask.description || "");
+    }
+  }, [editingTask]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
+    if (!editingTask) {
+      // Create new task
+      createNewTask();
+    } else {
+      // Update existing task
+      updateTask();
+    }
+
+    // Clear input fields
+    setTitle("");
+    setDescription("");
+  };
+
+  const createNewTask = () => {
     // Get current date and time
     const currentDate = new Date();
     const day = currentDate.getDate();
@@ -35,10 +56,16 @@ const TaskForm = ({ tasks, setTasks }) => {
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
     localStorage.setItem("taskList", JSON.stringify(updatedTasks));
+  };
 
-    // Clear input fields
-    setTitle("");
-    setDescription("");
+  const updateTask = () => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === editingTask.id ? { ...task, title, description } : task
+    );
+
+    setTasks(updatedTasks);
+    localStorage.setItem("taskList", JSON.stringify(updatedTasks));
+    setEditingTask(null); // Clear editing task after update
   };
 
   return (
@@ -62,7 +89,18 @@ const TaskForm = ({ tasks, setTasks }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
           <div className="mt-3">
-            <button className="btn btn-sm btn-success">Create</button>
+            <button className="btn btn-sm btn-success">
+              {editingTask ? "Update" : "Create"}
+            </button>
+            {editingTask && (
+              <button
+                type="button"
+                className="btn btn-sm btn-secondary ms-2"
+                onClick={() => setEditingTask(null)}
+              >
+                Cancel
+              </button>
+            )}
           </div>
         </div>
       </form>

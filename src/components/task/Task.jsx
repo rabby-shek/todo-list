@@ -71,6 +71,14 @@ const Add = () => {
       return; // Exit function without updating state
     }
 
+    // Check if selected date is in the past
+    if (selectedDate < today) {
+      const task = newTasks.find((task) => task.id === taskId);
+      console.log(`Due date is in the past for task: ${task.title}. Details:`, task);
+      alert("Due date is in the past. Please select a valid due date.");
+      return; // Exit function without updating state
+    }
+
     const updatedTasks = newTasks.map((task) => {
       if (task.id === taskId) {
         return { ...task, dueDate: selectedDate };
@@ -79,6 +87,15 @@ const Add = () => {
     });
     setNewTasks(updatedTasks);
     localStorage.setItem("taskList", JSON.stringify(updatedTasks));
+  };
+
+  const handleDeleteTask = (taskId) => {
+    const confirmed = window.confirm("Are you sure you want to delete this task?");
+    if (confirmed) {
+      const updatedTasks = newTasks.filter((task) => task.id !== taskId);
+      setNewTasks(updatedTasks);
+      localStorage.setItem("taskList", JSON.stringify(updatedTasks));
+    }
   };
 
   useEffect(() => {
@@ -155,7 +172,7 @@ const Add = () => {
                   <button className="btn btn-sm btn-warning">
                     <RxUpdate />
                   </button>
-                  <button className="btn btn-sm btn-danger">
+                  <button className="btn btn-sm btn-danger" onClick={() => handleDeleteTask(item.id)}>
                     <MdDelete />
                   </button>
                   <button
@@ -184,8 +201,8 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-ongoing">Ongoing</div>
               </div>
-              <div className="task-body">{item.description}<div><small>{item.createdDateTime}</small></div></div>
-              <div className="task-due-date between">
+              <div className="task-body">{item.description}</div>
+              <div className="task-due-date">
                 <label htmlFor={`dueDate_${item.id}`}>Due Date:</label>
                 <input
                   type="date"
@@ -234,7 +251,7 @@ const Add = () => {
                   <button className="btn btn-sm btn-warning">
                     <RxUpdate />
                   </button>
-                  <button className="btn btn-sm btn-danger">
+                  <button className="btn btn-sm btn-danger" onClick={() => handleDeleteTask(item.id)}>
                     <MdDelete />
                   </button>
                   <button
@@ -263,7 +280,7 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-done">Done</div>
               </div>
-              <div className="task-body">{item.description}<div><small>{item.createdDateTime}</small></div></div>
+              <div className="task-body">{item.description}</div>
               {taskTransferId === item.id && (
                 <div className="mb-3">
                   <div>Transfer to:</div>
@@ -304,7 +321,7 @@ const Add = () => {
                   <button className="btn btn-sm btn-warning">
                     <RxUpdate />
                   </button>
-                  <button className="btn btn-sm btn-danger">
+                  <button className="btn btn-sm btn-danger" onClick={() => handleDeleteTask(item.id)}>
                     <MdDelete />
                   </button>
                   <button
