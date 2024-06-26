@@ -12,6 +12,7 @@ const Add = () => {
   const [transferToNew, setTransferToNew] = useState(false);
   const [transferToOngoing, setTransferToOngoing] = useState(false);
   const [transferToDone, setTransferToDone] = useState(false);
+  const [dueDate, setDueDate] = useState("");
 
   const handleTaskForm = () => {
     setTaskForm(!taskForm);
@@ -60,6 +61,26 @@ const Add = () => {
     localStorage.setItem("taskList", JSON.stringify(updatedTasks));
   };
 
+  const handleDueDateChange = (e, taskId) => {
+    const selectedDate = e.target.value;
+    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+    // Check if selected date is before today
+    if (selectedDate < today) {
+      alert("Due date cannot be before today's date.");
+      return; // Exit function without updating state
+    }
+
+    const updatedTasks = newTasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, dueDate: selectedDate };
+      }
+      return task;
+    });
+    setNewTasks(updatedTasks);
+    localStorage.setItem("taskList", JSON.stringify(updatedTasks));
+  };
+
   useEffect(() => {
     try {
       const storedTasks = JSON.parse(localStorage.getItem("taskList")) || [];
@@ -93,9 +114,9 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-new">New</div>
               </div>
-              <div className="task-body">{item.description}</div>
+              <div className="task-body">{item.description} <div><small>{item.createdDateTime}</small></div></div>
               {taskTransferId === item.id && (
-                <div>
+                <div className="mb-3">
                   <div>Transfer to:</div>
                   <div className="form-check">
                     <input
@@ -144,7 +165,6 @@ const Add = () => {
                     <BiTransfer />
                   </button>
                 </div>
-                <input type="date" />
               </div>
             </div>
           ))}
@@ -164,9 +184,18 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-ongoing">Ongoing</div>
               </div>
-              <div className="task-body">{item.description}</div>
+              <div className="task-body">{item.description}<div><small>{item.createdDateTime}</small></div></div>
+              <div className="task-due-date between">
+                <label htmlFor={`dueDate_${item.id}`}>Due Date:</label>
+                <input
+                  type="date"
+                  id={`dueDate_${item.id}`}
+                  value={item.dueDate || ""}
+                  onChange={(e) => handleDueDateChange(e, item.id)}
+                />
+              </div>
               {taskTransferId === item.id && (
-                <div>
+                <div className="mb-3">
                   <div>Transfer to:</div>
                   <div className="form-check">
                     <input
@@ -215,7 +244,6 @@ const Add = () => {
                     <BiTransfer />
                   </button>
                 </div>
-                <input type="date" />
               </div>
             </div>
           ))}
@@ -235,9 +263,9 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-done">Done</div>
               </div>
-              <div className="task-body">{item.description}</div>
+              <div className="task-body">{item.description}<div><small>{item.createdDateTime}</small></div></div>
               {taskTransferId === item.id && (
-                <div>
+                <div className="mb-3">
                   <div>Transfer to:</div>
                   <div className="form-check">
                     <input
@@ -286,7 +314,6 @@ const Add = () => {
                     <BiTransfer />
                   </button>
                 </div>
-                <input type="date" />
               </div>
             </div>
           ))}

@@ -6,10 +6,37 @@ const TaskForm = ({ tasks, setTasks }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const newTask = { id: Date.now(), title, description, status: "new" };
+
+    // Get current date and time
+    const currentDate = new Date();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; // Months are zero-indexed
+    const year = currentDate.getFullYear();
+    
+    // Calculate hours and format in 12-hour format with AM/PM
+    let hours = currentDate.getHours();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    const minutes = currentDate.getMinutes();
+    const formattedDateTime = `${day}/${month}/${year} ${hours}:${minutes} ${ampm}`;
+
+    // Create new task object
+    const newTask = {
+      id: Date.now(),
+      title,
+      description,
+      status: "new",
+      createdDateTime: formattedDateTime, // Add created date and time
+    };
+
+    // Update tasks state and localStorage
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
     localStorage.setItem("taskList", JSON.stringify(updatedTasks));
+
+    // Clear input fields
     setTitle("");
     setDescription("");
   };
