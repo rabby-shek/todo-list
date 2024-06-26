@@ -83,8 +83,14 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
 }
+.task-status-done{
+  background-color: var(--done-task-bg-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 .task-body{
   margin-bottom: 10px;
+  width: 100%;
 }
 
 
