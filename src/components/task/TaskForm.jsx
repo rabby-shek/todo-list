@@ -78,6 +78,7 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
             placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            required
           />
         </div>
         <div className="mb-3">
@@ -87,6 +88,7 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
             value={description}
             placeholder="Description"
             onChange={(e) => setDescription(e.target.value)}
+            required
           />
           <div className="mt-3">
             <button className="btn btn-sm btn-success">
