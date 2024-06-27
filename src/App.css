@@ -6,8 +6,7 @@ body {
 .navbar-container {
   background-color: #fff;
   padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -28,8 +27,7 @@ body {
   position: fixed;
   width: 250px;
   background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   padding-top: 5rem;
 }
 
@@ -39,6 +37,7 @@ body {
   margin: 10px;
   width: 100%;
 }
+
 /* TASK STYLES */
 .task-container {
   display: grid;
@@ -47,52 +46,74 @@ body {
   width: 100%; /* Ensure container takes full width of parent */
 }
 
-
 .task-item {
   padding: 20px;
   border: 1px solid #ccc;
-  width: 100%; 
+  width: 100%;
   border-radius: 10px;
+  
 }
-.task{
+
+.task {
   height: 100%;
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  word-wrap: break-word;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
-.add-icon{
+
+.add-icon {
   font-size: 25px;
   cursor: pointer;
 }
-.task-header{
+
+.task-header {
   margin-bottom: 10px;
 }
-.task-title{
+
+.task-title {
   font-weight: bold;
   font-size: 18px;
+  width: 80%;
 }
-.task-status-new{
+
+.task-status-new {
   background-color: var(--new-task-bg-color);
   padding: 5px 10px;
   border-radius: 5px;
 }
-.task-status-ongoing{
+
+.task-status-ongoing {
   background-color: var(--ongoing-task-bg-color);
   padding: 5px 10px;
   border-radius: 5px;
 }
-.task-status-done{
+
+.task-status-done {
   background-color: var(--done-task-bg-color);
   padding: 5px 10px;
   border-radius: 5px;
 }
-.task-body{
+
+.task-body {
   margin-bottom: 10px;
   width: 100%;
 }
 
+.task-due-date {
+  margin-bottom: 10px;
+}
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-btn-grp {
+  display: flex;
+  gap: 10px;
+}
 
 @media (max-width: 991.98px) {
   .menu-icon {

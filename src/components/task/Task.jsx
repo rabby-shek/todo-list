@@ -131,7 +131,12 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-new">New</div>
               </div>
-              <div className="task-body">{item.description} <div><small>{item.createdDateTime}</small></div></div>
+              <div className="task-body">
+                {item.description}
+                <div>
+                  <small>{item.createdDateTime}</small>
+                </div>
+              </div>
               {taskTransferId === item.id && (
                 <div className="mb-3">
                   <div>Transfer to:</div>
@@ -172,7 +177,10 @@ const Add = () => {
                   <button className="btn btn-sm btn-warning">
                     <RxUpdate />
                   </button>
-                  <button className="btn btn-sm btn-danger" onClick={() => handleDeleteTask(item.id)}>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={() => handleDeleteTask(item.id)}
+                  >
                     <MdDelete />
                   </button>
                   <button
@@ -251,7 +259,10 @@ const Add = () => {
                   <button className="btn btn-sm btn-warning">
                     <RxUpdate />
                   </button>
-                  <button className="btn btn-sm btn-danger" onClick={() => handleDeleteTask(item.id)}>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={() => handleDeleteTask(item.id)}
+                  >
                     <MdDelete />
                   </button>
                   <button
@@ -321,7 +332,10 @@ const Add = () => {
                   <button className="btn btn-sm btn-warning">
                     <RxUpdate />
                   </button>
-                  <button className="btn btn-sm btn-danger" onClick={() => handleDeleteTask(item.id)}>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={() => handleDeleteTask(item.id)}
+                  >
                     <MdDelete />
                   </button>
                   <button
