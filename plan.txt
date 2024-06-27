@@ -1,6 +1,7 @@
-1. Project Setup
-2. Components Creation: Column, TodoItem, ContextMenu
-3. Main Application Logic: Managing Tasks and Context Menu
-4. Task Addition and Status Management
-5. Ongoing Tasks Deadline Management
-6. Styling and Responsiveness
+1. Project Setup (complete)
+2. Components Creation: Column, TodoItem (complete)
+3. Main Application Logic: Managing Tasks and Context Menu (complete)
+4. Task Addition and Status Management (complete)
+5. Ongoing Tasks Deadline Management (complete)
+6. Styling and Responsiveness (complete)
+7. Task Management (complete)
