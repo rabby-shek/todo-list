@@ -13,6 +13,7 @@ const Add = () => {
   const [transferToOngoing, setTransferToOngoing] = useState(false);
   const [transferToDone, setTransferToDone] = useState(false);
   const [dueDate, setDueDate] = useState("");
+  const [editingTask, setEditingTask] = useState(null); 
 
   const handleTaskForm = () => {
     setTaskForm(!taskForm);
@@ -98,6 +99,11 @@ const Add = () => {
     }
   };
 
+  const handleEditTask = (task) => {
+    setEditingTask(task);
+    setTaskForm(true); // Open the task form
+  };
+
   useEffect(() => {
     try {
       const storedTasks = JSON.parse(localStorage.getItem("taskList")) || [];
@@ -123,7 +129,10 @@ const Add = () => {
           </div>
         </div>
         <hr />
-        {taskForm && <TaskForm tasks={newTasks} setTasks={setNewTasks} />}
+        {taskForm && <TaskForm tasks={newTasks}
+            setTasks={setNewTasks}
+            editingTask={editingTask}
+            setEditingTask={setEditingTask} />}
         <div className="new-task-list">
           {filterTasksByStatus("new").reverse().map((item) => (
             <div key={item.id} className="task mt-3">
@@ -174,7 +183,7 @@ const Add = () => {
               )}
               <div className="task-footer between">
                 <div className="task-btn-grp between col-gap-1">
-                  <button className="btn btn-sm btn-warning">
+                  <button className="btn btn-sm btn-warning"  onClick={() => handleEditTask(item)}>
                     <RxUpdate />
                   </button>
                   <button
@@ -211,7 +220,7 @@ const Add = () => {
               </div>
               <div className="task-body">{item.description}</div>
               <div className="task-due-date">
-                <label htmlFor={`dueDate_${item.id}`}>Due Date:</label>
+                <label htmlFor={`dueDate_${item.id}`}>Due Date: </label><br />
                 <input
                   type="date"
                   id={`dueDate_${item.id}`}
@@ -256,7 +265,7 @@ const Add = () => {
               )}
               <div className="task-footer between">
                 <div className="task-btn-grp between col-gap-1">
-                  <button className="btn btn-sm btn-warning">
+                  <button className="btn btn-sm btn-warning"  onClick={() => handleEditTask(item)}>
                     <RxUpdate />
                   </button>
                   <button
@@ -329,9 +338,9 @@ const Add = () => {
               )}
               <div className="task-footer between">
                 <div className="task-btn-grp between col-gap-1">
-                  <button className="btn btn-sm btn-warning">
+                  {/* <button className="btn btn-sm btn-warning">
                     <RxUpdate />
-                  </button>
+                  </button> */}
                   <button
                     className="btn btn-sm btn-danger"
                     onClick={() => handleDeleteTask(item.id)}
