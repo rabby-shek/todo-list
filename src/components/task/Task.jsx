@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { BiTransfer } from "react-icons/bi";
 import TaskForm from "./TaskForm";
+import OngoingTask from "./OngoingTask";
 
 const Add = () => {
   const [taskForm, setTaskForm] = useState(false);
@@ -13,7 +14,7 @@ const Add = () => {
   const [transferToOngoing, setTransferToOngoing] = useState(false);
   const [transferToDone, setTransferToDone] = useState(false);
   const [dueDate, setDueDate] = useState("");
-  const [editingTask, setEditingTask] = useState(null); 
+  const [editingTask, setEditingTask] = useState(null);
 
   const handleTaskForm = () => {
     setTaskForm(!taskForm);
@@ -64,7 +65,7 @@ const Add = () => {
 
   const handleDueDateChange = (e, taskId) => {
     const selectedDate = e.target.value;
-    const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
 
     // Check if selected date is before today
     if (selectedDate < today) {
@@ -75,7 +76,10 @@ const Add = () => {
     // Check if selected date is in the past
     if (selectedDate < today) {
       const task = newTasks.find((task) => task.id === taskId);
-      console.log(`Due date is in the past for task: ${task.title}. Details:`, task);
+      console.log(
+        `Due date is in the past for task: ${task.title}. Details:`,
+        task
+      );
       alert("Due date is in the past. Please select a valid due date.");
       return; // Exit function without updating state
     }
@@ -91,7 +95,9 @@ const Add = () => {
   };
 
   const handleDeleteTask = (taskId) => {
-    const confirmed = window.confirm("Are you sure you want to delete this task?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
     if (confirmed) {
       const updatedTasks = newTasks.filter((task) => task.id !== taskId);
       setNewTasks(updatedTasks);
@@ -129,79 +135,88 @@ const Add = () => {
           </div>
         </div>
         <hr />
-        {taskForm && <TaskForm tasks={newTasks}
+        {taskForm && (
+          <TaskForm
+            tasks={newTasks}
             setTasks={setNewTasks}
             editingTask={editingTask}
-            setEditingTask={setEditingTask} />}
+            setEditingTask={setEditingTask}
+          />
+        )}
         <div className="new-task-list">
-          {filterTasksByStatus("new").reverse().map((item) => (
-            <div key={item.id} className="task mt-3">
-              <div className="task-header between">
-                <div className="task-title">{item.title}</div>
-                <div className="task-status-new">New</div>
-              </div>
-              <div className="task-body">
-                {item.description}
-                <div>
-                  <small>{item.createdDateTime}</small>
+          {filterTasksByStatus("new")
+            .reverse()
+            .map((item) => (
+              <div key={item.id} className="task mt-3">
+                <div className="task-header between">
+                  <div className="task-title">{item.title}</div>
+                  <div className="task-status-new">New</div>
                 </div>
-              </div>
-              {taskTransferId === item.id && (
-                <div className="mb-3">
-                  <div>Transfer to:</div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id={`transferToOngoing_${item.id}`}
-                      checked={transferToOngoing}
-                      onChange={handleTransferToOngoing}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor={`transferToOngoing_${item.id}`}
-                    >
-                      Ongoing
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id={`transferToDone_${item.id}`}
-                      checked={transferToDone}
-                      onChange={handleTransferToDone}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor={`transferToDone_${item.id}`}
-                    >
-                      Done
-                    </label>
+                <div className="task-body">
+                  {item.description}
+                  <div>
+                    <small>{item.createdDateTime}</small>
                   </div>
                 </div>
-              )}
-              <div className="task-footer between">
-                <div className="task-btn-grp between col-gap-1">
-                  <button className="btn btn-sm btn-warning"  onClick={() => handleEditTask(item)}>
-                    <RxUpdate />
-                  </button>
-                  <button
-                    className="btn btn-sm btn-danger"
-                    onClick={() => handleDeleteTask(item.id)}
-                  >
-                    <MdDelete />
-                  </button>
-                  <button
-                    className="btn btn-sm btn-primary"
-                    onClick={() => handleTransferShow(item.id)}
-                  >
-                    <BiTransfer />
-                  </button>
+                {taskTransferId === item.id && (
+                  <div className="mb-3">
+                    <div>Transfer to:</div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id={`transferToOngoing_${item.id}`}
+                        checked={transferToOngoing}
+                        onChange={handleTransferToOngoing}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor={`transferToOngoing_${item.id}`}
+                      >
+                        Ongoing
+                      </label>
+                    </div>
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        id={`transferToDone_${item.id}`}
+                        checked={transferToDone}
+                        onChange={handleTransferToDone}
+                      />
+                      <label
+                        className="form-check-label"
+                        htmlFor={`transferToDone_${item.id}`}
+                      >
+                        Done
+                      </label>
+                    </div>
+                  </div>
+                )}
+                <div className="task-footer between">
+                  <div className="task-btn-grp between col-gap-1">
+                    <button
+                      className="btn btn-sm btn-warning"
+                      onClick={() => handleEditTask(item)}
+                    >
+                      <RxUpdate />
+                    </button>
+                    <button
+                      className="btn btn-sm btn-danger"
+                      onClick={() => handleDeleteTask(item.id)}
+                    >
+                      <MdDelete />
+                    </button>
+                    <button
+                      className="btn btn-sm btn-primary"
+                      onClick={() => handleTransferShow(item.id)}
+                    >
+                      <BiTransfer />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 
@@ -212,82 +227,7 @@ const Add = () => {
         </div>
         <hr />
         <div className="new-task-list">
-          {filterTasksByStatus("ongoing").map((item) => (
-            <div key={item.id} className="task mt-3">
-              <div className="task-header between">
-                <div className="task-title">{item.title}</div>
-                <div className="task-status-ongoing">Ongoing</div>
-              </div>
-              <div className="task-body">{item.description}
-              <div>
-                  <small>{item.createdDateTime}</small>
-                </div>
-              </div>
-              <div className="task-due-date">
-                <label htmlFor={`dueDate_${item.id}`}>Due Date: </label><br />
-                <input
-                  type="date"
-                  id={`dueDate_${item.id}`}
-                  value={item.dueDate || ""}
-                  onChange={(e) => handleDueDateChange(e, item.id)}
-                />
-              </div>
-              {taskTransferId === item.id && (
-                <div className="mb-3">
-                  <div>Transfer to:</div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id={`transferToNew_${item.id}`}
-                      checked={transferToNew}
-                      onChange={handleTransferToNew}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor={`transferToNew_${item.id}`}
-                    >
-                      New
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id={`transferToDone_${item.id}`}
-                      checked={transferToDone}
-                      onChange={handleTransferToDone}
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor={`transferToDone_${item.id}`}
-                    >
-                      Done
-                    </label>
-                  </div>
-                </div>
-              )}
-              <div className="task-footer between">
-                <div className="task-btn-grp between col-gap-1">
-                  <button className="btn btn-sm btn-warning"  onClick={() => handleEditTask(item)}>
-                    <RxUpdate />
-                  </button>
-                  <button
-                    className="btn btn-sm btn-danger"
-                    onClick={() => handleDeleteTask(item.id)}
-                  >
-                    <MdDelete />
-                  </button>
-                  <button
-                    className="btn btn-sm btn-primary"
-                    onClick={() => handleTransferShow(item.id)}
-                  >
-                    <BiTransfer />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+         <OngoingTask filterTasksByStatus={filterTasksByStatus} handleDueDateChange={handleDueDateChange} taskTransferId={taskTransferId} transferToNew={transferToNew} handleTransferToNew={handleTransferToNew} transferToDone={transferToDone} handleTransferToDone={handleTransferToDone} handleEditTask={handleEditTask} handleDeleteTask={handleDeleteTask} handleTransferShow={handleTransferShow} />
         </div>
       </div>
 
@@ -304,8 +244,9 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-done">Done</div>
               </div>
-              <div className="task-body">{item.description}
-              <div>
+              <div className="task-body">
+                {item.description}
+                <div>
                   <small>{item.createdDateTime}</small>
                 </div>
               </div>
