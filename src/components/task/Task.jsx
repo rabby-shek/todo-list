@@ -218,7 +218,11 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-ongoing">Ongoing</div>
               </div>
-              <div className="task-body">{item.description}</div>
+              <div className="task-body">{item.description}
+              <div>
+                  <small>{item.createdDateTime}</small>
+                </div>
+              </div>
               <div className="task-due-date">
                 <label htmlFor={`dueDate_${item.id}`}>Due Date: </label><br />
                 <input
@@ -300,7 +304,11 @@ const Add = () => {
                 <div className="task-title">{item.title}</div>
                 <div className="task-status-done">Done</div>
               </div>
-              <div className="task-body">{item.description}</div>
+              <div className="task-body">{item.description}
+              <div>
+                  <small>{item.createdDateTime}</small>
+                </div>
+              </div>
               {taskTransferId === item.id && (
                 <div className="mb-3">
                   <div>Transfer to:</div>
