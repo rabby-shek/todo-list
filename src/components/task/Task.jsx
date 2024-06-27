@@ -227,7 +227,18 @@ const Add = () => {
         </div>
         <hr />
         <div className="new-task-list">
-         <OngoingTask filterTasksByStatus={filterTasksByStatus} handleDueDateChange={handleDueDateChange} taskTransferId={taskTransferId} transferToNew={transferToNew} handleTransferToNew={handleTransferToNew} transferToDone={transferToDone} handleTransferToDone={handleTransferToDone} handleEditTask={handleEditTask} handleDeleteTask={handleDeleteTask} handleTransferShow={handleTransferShow} />
+          <OngoingTask
+            filterTasksByStatus={filterTasksByStatus}
+            handleDueDateChange={handleDueDateChange}
+            taskTransferId={taskTransferId}
+            transferToNew={transferToNew}
+            handleTransferToNew={handleTransferToNew}
+            transferToDone={transferToDone}
+            handleTransferToDone={handleTransferToDone}
+            handleEditTask={handleEditTask}
+            handleDeleteTask={handleDeleteTask}
+            handleTransferShow={handleTransferShow}
+          />
         </div>
       </div>
 
