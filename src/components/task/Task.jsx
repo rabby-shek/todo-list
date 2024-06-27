@@ -125,7 +125,7 @@ const Add = () => {
         <hr />
         {taskForm && <TaskForm tasks={newTasks} setTasks={setNewTasks} />}
         <div className="new-task-list">
-          {filterTasksByStatus("new").map((item) => (
+          {filterTasksByStatus("new").reverse().map((item) => (
             <div key={item.id} className="task mt-3">
               <div className="task-header between">
                 <div className="task-title">{item.title}</div>
