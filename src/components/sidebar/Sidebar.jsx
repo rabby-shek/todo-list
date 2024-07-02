@@ -9,8 +9,7 @@ import { MdOutlineDashboard, MdAssignment } from "react-icons/md";
  * This component renders a sidebar with navigation links. It uses a list of navigation items,
  * each with a specific icon and text. The sidebar's visibility can be toggled using the `isOpen` prop.
  *
- * Props:
- * - isOpen (boolean): Determines if the sidebar is open or closed.
+ * @param {isOpen(type->boolean)} // Determines if the sidebar is open or closed.
  *
  * Example usage:
  * <Sidebar isOpen={true} />
