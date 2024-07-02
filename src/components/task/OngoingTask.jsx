@@ -29,7 +29,9 @@ const OngoingTask = ({
             </div>
           </div>
           <div className="task-due-date">
-            <label htmlFor={`dueDate_${item.id}`} className="bold">Due Date: </label>
+            <label htmlFor={`dueDate_${item.id}`} className="bold">
+              Due Date:{" "}
+            </label>
             <br />
             <input
               type="date"
