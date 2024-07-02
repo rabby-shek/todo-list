@@ -1,5 +1,5 @@
-import React from 'react';
-import Add from '../task/Task';
+import React from "react";
+import Add from "../task/Task";
 
 const Main = () => {
   return (
@@ -7,6 +7,6 @@ const Main = () => {
       <Add />
     </div>
   );
-}
+};
 
 export default Main;

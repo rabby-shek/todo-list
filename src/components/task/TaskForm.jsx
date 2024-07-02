@@ -33,10 +33,10 @@ const TaskForm = ({ tasks, setTasks, editingTask, setEditingTask }) => {
     const day = currentDate.getDate();
     const month = currentDate.getMonth() + 1; // Months are zero-indexed
     const year = currentDate.getFullYear();
-    
+
     // Calculate hours and format in 12-hour format with AM/PM
     let hours = currentDate.getHours();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
 
