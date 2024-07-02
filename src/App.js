@@ -1,23 +1,15 @@
 import React, { useState } from 'react'
 import Navbar from './components/navbar/Navbar';
-import Main from './components/main/Main';
+import Main from './layout/main/Main';
 import Sidebar from './components/sidebar/Sidebar'
 import './App.css';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/Route';
 const App = () => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  }
-  return (
-    <div>
-      <Navbar toggleSidebar={toggleSidebar} />
-      <div className="d-flex">
-        <Sidebar isOpen={isOpen} />
-        <Main />
-      </div>
-    </div>
-  )
+  return <RouterProvider router={router} />
+
+
 }
 
 export default App;

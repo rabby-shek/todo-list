@@ -2,6 +2,7 @@ import React from "react";
 import { VscOrganization } from "react-icons/vsc";
 import { FaTasks } from "react-icons/fa";
 import { MdOutlineDashboard, MdAssignment } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Sidebar Component
@@ -16,30 +17,31 @@ import { MdOutlineDashboard, MdAssignment } from "react-icons/md";
  */
 
 // Array containing navigation items with href, icon, and text properties
-const navItems = [
-  {
-    href: "#home",
-    icon: <MdOutlineDashboard className="nav-link-icon me-2" />,
-    text: "Dashboard",
-  },
-  {
-    href: "#home",
-    icon: <VscOrganization className="nav-link-icon me-2" />,
-    text: "Your Organization",
-  },
-  {
-    href: "#features",
-    icon: <FaTasks className="nav-link-icon me-2" />,
-    text: "Task List",
-  },
-  {
-    href: "#pricing",
-    icon: <MdAssignment className="nav-link-icon me-2" />,
-    text: "Assign Task",
-  },
-];
 
 const Sidebar = ({ isOpen }) => {
+  const navItems = [
+    {
+      to: "/",
+      icon: <MdOutlineDashboard className="nav-link-icon me-2" />,
+      text: "Dashboard",
+    },
+    {
+      to: "/organization",
+      icon: <VscOrganization className="nav-link-icon me-2" />,
+      text: "Your Organization",
+    },
+    {
+      to: "/task-list",
+      icon: <FaTasks className="nav-link-icon me-2" />,
+      text: "Task List",
+    },
+    {
+      to: "#pricing",
+      icon: <MdAssignment className="nav-link-icon me-2" />,
+      text: "Assign Task",
+    },
+  ];
+  const navigate = useNavigate();
   return (
     <div className={`sidebar-container ${isOpen ? "show" : "hide"}`}>
       <div className="vh-100 d-lg-block">
@@ -47,7 +49,7 @@ const Sidebar = ({ isOpen }) => {
           {/* Render navigation items by mapping through the navItems array */}
           {navItems.map((item, index) => (
             <li key={index} className="nav-item">
-              <a className="nav-link between" href={item.href}>
+              <a className="nav-link between" onClick={() => navigate(item.to)}>
                 {item.icon}
                 {item.text}
               </a>

@@ -53,8 +53,9 @@ body {
 /* ========== MAIN CONTAINER STYLES ========== */
 .main-container {
   padding-top: 6rem;
-  margin: 10px;
   width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .show {
   top: 0;
@@ -143,6 +144,5 @@ body {
     padding-top: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin: 10px;
   }
 }
