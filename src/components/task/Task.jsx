@@ -6,6 +6,7 @@ import { BiTransfer } from "react-icons/bi";
 import TaskForm from "./TaskForm";
 import OngoingTask from "./OngoingTask";
 import TaskHeader from "../global/TaskHeader";
+import TaskFooter from "../global/TaskFooter";
 
 const Add = () => {
   const [taskForm, setTaskForm] = useState(false);
@@ -149,7 +150,7 @@ const Add = () => {
             .reverse()
             .map((item) => (
               <div key={item.id} className="task mt-3">
-               <TaskHeader title={item.title} status= "New" />
+                <TaskHeader title={item.title} status="New" />
                 <div className="task-body">
                   {item.description}
                   <div>
@@ -191,28 +192,12 @@ const Add = () => {
                     </div>
                   </div>
                 )}
-                <div className="task-footer between">
-                  <div className="task-btn-grp between col-gap-1">
-                    <button
-                      className="btn btn-sm btn-warning"
-                      onClick={() => handleEditTask(item)}
-                    >
-                      <RxUpdate />
-                    </button>
-                    <button
-                      className="btn btn-sm btn-danger"
-                      onClick={() => handleDeleteTask(item.id)}
-                    >
-                      <MdDelete />
-                    </button>
-                    <button
-                      className="btn btn-sm btn-primary"
-                      onClick={() => handleTransferShow(item.id)}
-                    >
-                      <BiTransfer />
-                    </button>
-                  </div>
-                </div>
+                <TaskFooter
+                  handleEditTask={handleEditTask}
+                  handleDeleteTask={handleDeleteTask}
+                  handleTransferShow={handleTransferShow}
+                  item={item}
+                />
               </div>
             ))}
         </div>
@@ -249,7 +234,7 @@ const Add = () => {
         <div className="new-task-list">
           {filterTasksByStatus("done").map((item) => (
             <div key={item.id} className="task mt-3">
-             <TaskHeader title={item.title} status="Done" />
+              <TaskHeader title={item.title} status="Done" />
               <div className="task-body">
                 {item.description}
                 <div>

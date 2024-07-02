@@ -3,6 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { BiTransfer } from "react-icons/bi";
 import TaskHeader from "../global/TaskHeader";
+import TaskFooter from "../global/TaskFooter";
 const OngoingTask = ({
   filterTasksByStatus,
   handleDueDateChange,
@@ -19,6 +20,7 @@ const OngoingTask = ({
     <div>
       {filterTasksByStatus("ongoing").map((item) => (
         <div key={item.id} className="task mt-3">
+          {/* Task header */}
           <TaskHeader title={item.title} status="Ongoing" />
 
           <div className="task-body">
@@ -83,28 +85,13 @@ const OngoingTask = ({
             )}
           </div>
 
-          <div className="task-footer between">
-            <div className="task-btn-grp between col-gap-1">
-              <button
-                className="btn btn-sm btn-warning"
-                onClick={() => handleEditTask(item)}
-              >
-                <RxUpdate />
-              </button>
-              <button
-                className="btn btn-sm btn-danger"
-                onClick={() => handleDeleteTask(item.id)}
-              >
-                <MdDelete />
-              </button>
-              <button
-                className="btn btn-sm btn-primary"
-                onClick={() => handleTransferShow(item.id)}
-              >
-                <BiTransfer />
-              </button>
-            </div>
-          </div>
+          {/* Task Footer */}
+          <TaskFooter
+            handleEditTask={handleEditTask}
+            handleDeleteTask={handleDeleteTask}
+            handleTransferShow={handleTransferShow}
+            item={item}
+          />
         </div>
       ))}
     </div>
