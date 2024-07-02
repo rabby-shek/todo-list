@@ -2,7 +2,7 @@ import React from "react";
 import { VscOrganization } from "react-icons/vsc";
 import { FaTasks } from "react-icons/fa";
 import { MdOutlineDashboard, MdAssignment } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 /**
  * Sidebar Component
@@ -41,7 +41,6 @@ const Sidebar = ({ isOpen }) => {
       text: "Assign Task",
     },
   ];
-  const navigate = useNavigate();
   return (
     <div className={`sidebar-container ${isOpen ? "show" : "hide"}`}>
       <div className="vh-100 d-lg-block">
@@ -49,10 +48,10 @@ const Sidebar = ({ isOpen }) => {
           {/* Render navigation items by mapping through the navItems array */}
           {navItems.map((item, index) => (
             <li key={index} className="nav-item">
-              <a className="nav-link between" onClick={() => navigate(item.to)}>
+              <NavLink className="nav-link between" to={item.to}>
                 {item.icon}
                 {item.text}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
