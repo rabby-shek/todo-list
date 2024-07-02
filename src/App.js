@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './components/navbar/Navbar';
 import Main from './components/main/Main';
+import Sidebar from './components/sidebar/Sidebar'
 import './App.css';
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,7 @@ const App = () => {
     <div>
       <Navbar toggleSidebar={toggleSidebar} />
       <div className="d-flex">
-        {/* <Sidebar isOpen={isOpen} /> */}
+        <Sidebar isOpen={isOpen} />
         <Main />
       </div>
     </div>

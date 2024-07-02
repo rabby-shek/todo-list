@@ -10,18 +10,15 @@ body {
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 .nav-logo img {
   width: 50px;
 }
-.nav-link {
-  padding: 1rem;
-}
+
 .menu-icon {
   font-size: 20px;
   cursor: pointer;
-  display: none;
 }
 /* ========== SIDEBAR STYLES ========== */
 .sidebar-container {
@@ -31,6 +28,26 @@ body {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   padding-top: 5rem;
+  height: 100%;
+  z-index: 1;
+  top: -100%;
+  transition: top 0.4s;
+}
+.sidebar-container .nav {
+  padding: 2rem 0;
+}
+.sidebar-container .nav-link {
+  color: #858282;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 0 1rem;
+}
+.sidebar-container .nav-link-icon {
+  font-size: 20px;
+}
+.sidebar-container .nav-link:hover {
+  color: #000;
+  background-color: #e2e2e2;
 }
 
 /* ========== MAIN CONTAINER STYLES ========== */
@@ -38,6 +55,9 @@ body {
   padding-top: 6rem;
   margin: 10px;
   width: 100%;
+}
+.show {
+  top: 0;
 }
 
 /* ========== TASK STYLES ========== */
@@ -119,26 +139,10 @@ body {
 
 /* ========== RESPONSIVE STYLES ========== */
 @media (max-width: 991.98px) {
-  .menu-icon {
-    display: block;
-  }
-
   .main-container {
     padding-top: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
     margin: 10px;
-  }
-
-  .sidebar-container {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    z-index: 1000;
-    left: -100%;
-    transition: left 0.4s;
-  }
-  .show {
-    left: 0;
   }
 }
