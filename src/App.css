@@ -49,7 +49,7 @@ body {
   color: #000;
   background-color: #e2e2e2;
 }
-.sidebar-container .nav-link.active{
+.sidebar-container .nav-link.active {
   color: #000;
   background-color: #e2e2e2;
 }
@@ -140,36 +140,44 @@ body {
   gap: 10px;
 }
 
-/* WIDGET STYLES */
-.widget-style1{
-	padding: 20px 10px;
+/* ========== WIDGET STYLES ========== */
+.widget-style1 {
+  padding: 20px 10px;
   border-radius: 10px;
 }
-.widget-style1 .circle-icon{
-	width: 60px;
+.widget-style1 .circle-icon {
+  width: 60px;
 }
-.widget-style1 .circle-icon .icon{
-	width: 60px;
-	height: 60px;
-	background: #ecf0f4;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.widget-style1 .circle-icon .icon {
+  width: 60px;
+  height: 60px;
+  background: #ecf0f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.widget-style1 .widget-data{
-	width: calc(100% - 150px);
-	padding: 0 15px;
+.widget-style1 .widget-data {
+  width: calc(100% - 150px);
+  padding: 0 15px;
 }
-.widget-style1 .progress-data{
-	width: 90px;
+.widget-style1 .progress-data {
+  width: 90px;
 }
-.widget-style1 .progress-data .apexcharts-canvas{
-	margin: 0 auto;
+.widget-style1 .progress-data .apexcharts-canvas {
+  margin: 0 auto;
 }
-/* NOT FOUND PAGE STYLES */
-.error-template {padding: 40px 15px;text-align: center;}
-.error-actions {margin-top:15px;margin-bottom:15px;}
-.error-actions .btn { margin-right:10px; }
+/* ========== NOT FOUND PAGE STYLES ========== */
+.error-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.error-actions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.error-actions .btn {
+  margin-right: 10px;
+}
 
 /* ========== RESPONSIVE STYLES ========== */
 @media (max-width: 991.98px) {

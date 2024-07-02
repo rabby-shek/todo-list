@@ -58,13 +58,13 @@
 .pointer {
   cursor: pointer;
 }
-.bg-grey{
+.bg-grey {
   background-color: #f1f1f1;
 }
-.bg-light-blue{
-  background-color: #3FA2F6;
+.bg-light-blue {
+  background-color: #3fa2f6;
 }
-.bg-dark-light{
+.bg-dark-light {
   background-color: #9c9c9c;
   color: #fff;
 }
