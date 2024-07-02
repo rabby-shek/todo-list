@@ -29,7 +29,7 @@ const OngoingTask = ({
             </div>
           </div>
           <div className="task-due-date">
-            <label htmlFor={`dueDate_${item.id}`}>Due Date: </label>
+            <label htmlFor={`dueDate_${item.id}`} className="bold">Due Date: </label>
             <br />
             <input
               type="date"
@@ -41,7 +41,7 @@ const OngoingTask = ({
           </div>
           {taskTransferId === item.id && (
             <div className="mb-3">
-              <div>Transfer to:</div>
+              <div className="bold">Transfer to:</div>
               <div className="form-check">
                 <input
                   className="form-check-input form-control me-1"
