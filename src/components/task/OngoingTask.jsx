@@ -8,7 +8,6 @@ import TaskFooter from "../global/TaskFooter";
  * It also includes options to transfer tasks between different statuses.
  * @param {filterTasksByStatus(type->function)} // Function to filter tasks based on their status.
  * @param {handleDueDateChange(type->function)} // Function to handle changes in the task's due date.
- * @param {taskTransferId(type->)}
  * 
  */
 

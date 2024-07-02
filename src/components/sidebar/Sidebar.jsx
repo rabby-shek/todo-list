@@ -42,6 +42,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       text: "Assign Task",
     },
   ];
+
   return (
     <div className={`sidebar-container ${isOpen ? "show" : "hide"}`}>
       <div className="vh-100 d-lg-block">
