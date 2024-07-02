@@ -5,6 +5,7 @@ import { RxUpdate } from "react-icons/rx";
 import { BiTransfer } from "react-icons/bi";
 import TaskForm from "./TaskForm";
 import OngoingTask from "./OngoingTask";
+import TaskHeader from "../global/TaskHeader";
 
 const Add = () => {
   const [taskForm, setTaskForm] = useState(false);
@@ -148,10 +149,7 @@ const Add = () => {
             .reverse()
             .map((item) => (
               <div key={item.id} className="task mt-3">
-                <div className="task-header between">
-                  <div className="task-title">{item.title}</div>
-                  <div className="task-status-new">New</div>
-                </div>
+               <TaskHeader title={item.title} status= "New" />
                 <div className="task-body">
                   {item.description}
                   <div>
@@ -251,10 +249,7 @@ const Add = () => {
         <div className="new-task-list">
           {filterTasksByStatus("done").map((item) => (
             <div key={item.id} className="task mt-3">
-              <div className="task-header between">
-                <div className="task-title">{item.title}</div>
-                <div className="task-status-done">Done</div>
-              </div>
+             <TaskHeader title={item.title} status="Done" />
               <div className="task-body">
                 {item.description}
                 <div>

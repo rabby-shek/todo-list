@@ -1,12 +1,23 @@
 import React from "react";
 
-const TaskHeader = ({ title }) => {
+/**
+ * TaskHeader Component
+ * This component renders the header of a task, displaying its title and status.
+ * The status is used to apply a corresponding CSS class for dynamic styling.
+ * @param {title} // Title of the task
+ * @param {status} // Status of the current task
+ * Example usage:
+ * <TaskHeader title="Complete the project" status="Ongoing" />
+ * <TaskHeader title="Review the code" status="Done" /
+ */
+
+const TaskHeader = ({ title, status }) => {
+  const statusStyle = status.toLowerCase();
+
   return (
-    <div>
-      <div className="task-header between">
-        <div className="task-title">{title}</div>
-        <div className="task-status-ongoing">Ongoing</div>
-      </div>
+    <div className="task-header between">
+      <div className="task-title">{title}</div>
+      <div className={`task-status-${statusStyle}`}>{status}</div>
     </div>
   );
 };
