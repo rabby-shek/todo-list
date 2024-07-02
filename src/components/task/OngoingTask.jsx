@@ -1,6 +1,17 @@
 import React from "react";
 import TaskHeader from "../global/TaskHeader";
 import TaskFooter from "../global/TaskFooter";
+
+/**
+ * OngoingTask Component
+ * This component renders a list of ongoing tasks. Each task displays its header, body, due date, and footer.
+ * It also includes options to transfer tasks between different statuses.
+ * @param {filterTasksByStatus(type->function)} // Function to filter tasks based on their status.
+ * @param {handleDueDateChange(type->function)} // Function to handle changes in the task's due date.
+ * @param {taskTransferId}
+ * 
+ */
+
 const OngoingTask = ({
   filterTasksByStatus,
   handleDueDateChange,
@@ -13,6 +24,7 @@ const OngoingTask = ({
   handleDeleteTask,
   handleTransferShow,
 }) => {
+  console.log(typeof taskTransferId);
   return (
     <div className="new-task-list">
       {filterTasksByStatus("ongoing").map((item) => (
