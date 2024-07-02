@@ -33,6 +33,7 @@ const OngoingTask = ({
             <br />
             <input
               type="date"
+              className="form-control"
               id={`dueDate_${item.id}`}
               value={item.dueDate || ""}
               onChange={(e) => handleDueDateChange(e, item.id)}
@@ -43,7 +44,7 @@ const OngoingTask = ({
               <div>Transfer to:</div>
               <div className="form-check">
                 <input
-                  className="form-check-input"
+                  className="form-check-input form-control me-1"
                   type="checkbox"
                   id={`transferToNew_${item.id}`}
                   checked={transferToNew}
@@ -58,7 +59,7 @@ const OngoingTask = ({
               </div>
               <div className="form-check">
                 <input
-                  className="form-check-input"
+                  className="form-check-input form-control me-1"
                   type="checkbox"
                   id={`transferToDone_${item.id}`}
                   checked={transferToDone}
