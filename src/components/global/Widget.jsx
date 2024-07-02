@@ -2,12 +2,12 @@ import React from 'react'
 
 const Widget = ({bgClass, iconClass, icon, value, label, chartId}) => {
   return (
-    <div className={`col-xl-3 mb-50`}>
-    <div className={`bg-${bgClass} box-shadow border-radius-10 height-100-p widget-style1`}>
+    <div className={`col-xl-3 mb-50 widget-style1`}>
+    <div className={`${bgClass} box-shadow border-radius-10 height-100-p widget-style1`}>
       <div className="d-flex flex-wrap align-items-center">
         <div className="circle-icon">
           <div className={`icon border-radius-100 font-24 text-blue ${iconClass}`}>
-            <i className={`fa ${icon}`} aria-hidden="true"></i>
+            {icon}
           </div>
         </div>
         <div className="widget-data">

@@ -58,3 +58,13 @@
 .pointer {
   cursor: pointer;
 }
+.bg-grey{
+  background-color: #FCF8F3;
+}
+.bg-light-blue{
+  background-color: #3FA2F6;
+}
+.bg-dark-light{
+  background-color: #9c9c9c;
+  color: #fff;
+}
