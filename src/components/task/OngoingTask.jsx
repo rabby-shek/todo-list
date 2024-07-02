@@ -20,14 +20,20 @@ const OngoingTask = ({
       {filterTasksByStatus("ongoing").map((item) => (
         <div key={item.id} className="task mt-3">
           <TaskHeader title={item.title} status="Ongoing" />
+
           <div className="task-body">
+            {/* Task description */}
             {item.description}
+
+            {/* Task creation time */}
             <div>
               <small>{item.createdDateTime}</small>
             </div>
+
+            {/* Task due date */}
             <div className="task-due-date">
               <label htmlFor={`dueDate_${item.id}`} className="bold">
-                Due Date:{" "}
+                Due Date:
               </label>
               <br />
               <input
@@ -38,6 +44,8 @@ const OngoingTask = ({
                 onChange={(e) => handleDueDateChange(e, item.id)}
               />
             </div>
+
+            {/* Task transfer options */}
             {taskTransferId === item.id && (
               <div className="mb-3">
                 <div className="bold">Transfer to:</div>
