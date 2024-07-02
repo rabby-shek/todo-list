@@ -25,7 +25,7 @@ const DoneTask = ({
           </div>
           {taskTransferId === item.id && (
             <div className="mb-3">
-              <div>Transfer to:</div>
+              <div className="bold">Transfer to:</div>
               <div className="form-check">
                 <input
                   className="form-check-input form-control me-1 pointer"
