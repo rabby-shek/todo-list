@@ -49,13 +49,15 @@ body {
   color: #000;
   background-color: #e2e2e2;
 }
+.sidebar-container .nav-link.active{
+  color: #000;
+  background-color: #e2e2e2;
+}
 
 /* ========== MAIN CONTAINER STYLES ========== */
 .main-container {
-  padding-top: 6rem;
+  padding: 6rem 1rem 1rem;
   width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 .show {
   top: 0;
@@ -138,11 +140,35 @@ body {
   gap: 10px;
 }
 
+/* widget */
+.widget-style1{
+	padding: 20px 10px;
+  background-color: red;
+}
+.widget-style1 .circle-icon{
+	width: 60px;
+}
+.widget-style1 .circle-icon .icon{
+	width: 60px;
+	height: 60px;
+	background: #ecf0f4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.widget-style1 .widget-data{
+	width: calc(100% - 150px);
+	padding: 0 15px;
+}
+.widget-style1 .progress-data{
+	width: 90px;
+}
+.widget-style1 .progress-data .apexcharts-canvas{
+	margin: 0 auto;
+}
 /* ========== RESPONSIVE STYLES ========== */
 @media (max-width: 991.98px) {
   .main-container {
-    padding-top: 6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 6rem 1rem 1rem;
   }
 }

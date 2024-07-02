@@ -12,7 +12,7 @@ const Main = () => {
   return (
     <>
       <Navbar toggleSidebar={toggleSidebar} />
-      <Sidebar isOpen={isOpen} />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="main-container">
         <Outlet />
       </div>
