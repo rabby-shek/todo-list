@@ -1,7 +1,4 @@
 import React from "react";
-import { MdDelete } from "react-icons/md";
-import { RxUpdate } from "react-icons/rx";
-import { BiTransfer } from "react-icons/bi";
 import TaskHeader from "../global/TaskHeader";
 import TaskFooter from "../global/TaskFooter";
 const OngoingTask = ({
@@ -17,7 +14,7 @@ const OngoingTask = ({
   handleTransferShow,
 }) => {
   return (
-    <div>
+    <div className="new-task-list">
       {filterTasksByStatus("ongoing").map((item) => (
         <div key={item.id} className="task mt-3">
           {/* Task header */}
@@ -53,7 +50,7 @@ const OngoingTask = ({
                 <div className="bold">Transfer to:</div>
                 <div className="form-check">
                   <input
-                    className="form-check-input form-control me-1"
+                    className="form-check-input form-control me-1 pointer"
                     type="checkbox"
                     id={`transferToNew_${item.id}`}
                     checked={transferToNew}
@@ -68,7 +65,7 @@ const OngoingTask = ({
                 </div>
                 <div className="form-check">
                   <input
-                    className="form-check-input form-control me-1"
+                    className="form-check-input form-control me-1 pointer"
                     type="checkbox"
                     id={`transferToDone_${item.id}`}
                     checked={transferToDone}
